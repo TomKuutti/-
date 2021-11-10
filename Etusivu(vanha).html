@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+	<!------------- Navbar ------------->
+  <body>
+    <nav>
+      <ul>
+	  
+	  <!--- logo tähän --->
+<li class="logo"> <a href="Etusivu.html"><img src="LogoCrop.png"></a></li>
+	  <!--- logo tähän --->
+
+<li class="btn"><span class="fas fa-bars"></span></li>
+<div class="items">
+<li><a href="Etusivu.html">Etusivu</a></li>
+<li><a href="Pelit.html">Pelit</a></li>
+<li><a href="Register.html">Register</a></li>
+<li><a href="SignIn.html">Sign in</a></li>
+</div>
+<li class="search-icon">
+          <input type="search" placeholder="Hae">
+          <label class="icon">
+            <span class="fas fa-search"></span>
+          </label>
+        </li>
+</ul>
+</nav>
+<script>
+      $('nav ul li.btn span').click(function(){
+        $('nav ul div.items').toggleClass("show");
+        $('nav ul li.btn span').toggleClass("show");
+      });
+    </script>
+  </body>
+  <style>
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  color: #f2f2f2;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+nav{
+  background: #3b3b3b;
+  padding: 10px 40px 10px 70px;
+  border: 1px solid #000;
+  border-left: none;
+  border-right: none;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li.logo{
+  flex: 1;
+  font-size: 30px;
+  font-weight: 700;
+}
+nav ul div.items{
+  padding: 0 25px;
+  display: inline-flex;
+}
+nav ul div.items a{
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 12px;
+}
+nav ul div.items a:hover{
+  color: red;
+}
+nav ul .search-icon{
+  height: 40px;
+  width: 240px;
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+nav ul .search-icon input{
+  height: 100%;
+  width: 200px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+}
+nav ul .search-icon .icon{
+  height: 100%;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+nav ul .search-icon .icon:hover{
+  background: #e6e6e6;
+}
+nav ul .search-icon .icon span{
+  color: #222222;
+  font-size: 18px;
+}
+nav ul li.btn{
+  font-size: 29px;
+  flex: 1;
+  padding: 0 40px;
+  display: none;
+}
+nav ul li.btn span{
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  border: 1px solid #151515;
+  border-radius: 5px;
+  cursor: pointer;
+}
+nav ul li.btn span.show:before{
+  content: '\f00d';
+}
+@media screen and (max-width: 1052px) {
+  nav{
+    padding: 10px 40px 10px 0px;
+  }
+  nav ul li.logo{
+    display: none;
+	max-height: 20px;
+	max-width: 20px;
+  }
+  nav ul div.items{
+    flex: 4;
+  }
+}
+@media screen and (max-width: 800px){
+  nav ul li.btn{
+    display: block;
+  }
+  nav{
+    z-index: 1;
+    padding: 9px 40px 9px 0;
+  }
+  nav ul div.items{
+    z-index: -1;
+    position: fixed;
+    top: -220px;
+    right: 0;
+    width: 100%;
+    background: #222222;
+    display: inline-block;
+    transition: top .4s;
+  }
+  nav ul div.items.show{
+    top: 60px;
+  }
+  nav ul div.items li{
+    text-align: center;
+    line-height: 30px;
+    margin: 30px 0;
+  }
+  nav ul div.items li a{
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 405px) {
+  nav ul{
+    flex-wrap: nowrap;
+  }
+  nav ul li.search{
+    width: 50vmin;
+  }
+  nav ul li input{
+    width: 40vmin;
+  }
+  nav ul li .search-icon{
+    width: 10vmin;
+  }
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  padding: 0 40px;
+  z-index: -2;
+}
+.content .text{
+  font-size: 40px;
+  font-weight: 800;
+  padding: 5px 0;
+  color: #202020;
+}
+.content .p{
+  font-size: 28px;
+  font-weight: 600;
+  color: #202020;
+}
+</style>
+
+
+<!------- UI ------->
+<style>
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.grid-container > div {
+color: black;
+  background-color: #04AA6D;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.grid-container h2{
+color: black;
+}
+
+.grid-container p{
+font-size: 20px;
+color: black;
+}
+</style>
+</head>
+<body>
+<br><br><br><br><br>
+<div class="grid-container">
+  <div class="item1">
+  <h2>Muistisairauksien oireet</h2>
+  <p>Muistisairauksien oireet vaihtelevat hieman sen mukaan, mikä muistisairaus on kyseessä. Tyypillistä kaikille on kuitenkin se, että oireet alkavat pikkuhiljaa ja ne voimistuvat jaksottain. Hyvällä kuntoutustoiminnalla muistisairauden kehittymistä voidaan hieman hidastaa ja elämänlaatua parantaa.</p>
+  </div>
+  
+  <div class="item2"><h2>Alzheimer</h2>
+  <p>
+  Alzheimerin tauti on yleisin muistisairaus. Otsa-ohimolohkorappeumasta johtuva muistisairaus ja myös harvinaiset, kuten Hakolan tauti, Huntingtonin tauti ja CADACIL ovat yleisempiä työikäisillä. Runsas ja pitkäaikainen alkoholinkäyttö lisää muistisairauden puhkeamista. Työikäisillä ei myöskään osata aina epäillä etenevää muistisairautta vaan voidaan antaa väärä diagnoosi, kuten työuupumus, masennus tai päihteistä johtuva unohtelu. Työikäisten muisti ei oireile kaikilla heti ja se taas hidastaa diagnosointia.</p>
+  </div>
+  
+  <div class="item3"><h2>Muistisairauden asteet</h2>
+  <p>Etenevä muistisairaus on sellainen, joka voi heikentää hahmottamista, päätöksentekoa, oppimista ja muita tärkeitä taitoja. Muistisairaus voi olla lievä, keskivaikea ja erittäin vaikea. Ja jokainen voi kokea nämä vaiheet elämänsä aikana, jotka sairastavat. Dementiaa ei voi luokitella sairaudeksi.</p>
+  </div>  
+  
+  <div class="item4"><h2>Alzheimerin esiintyvyys</h2>
+  <p>Milloin Alzheimerin alkaa
+Noin4 prosenttia 65–74-vuotiaista ja 25 prosenttia yli 85-vuotiaista sairastaa sitä. Tauti voi alkaa jopa alle 50-vuotiaana
+  </p>
+  </div>
+  
+  <div class="item5"><h2>Dementian syyt</h2>
+  <p>Dementiaa aiheuttavat esimerkiksi monet sairaudet, myrkytykset, lääkkeet tai puutostilat. Dementia ei ole varsinainen sairaus, vaan oireyhtymä. Dementiasta kärsivä ei välttämättä kykene itsenäisesti selviytymään arjestaan ja tarvitsee perheen tuen lisäksi useimmiten ulkopuolista apua
+  </p>
+  </div>
+</div>
+
+<!------------ videos ----------------->
+<style>
+* {
+  box-sizing: border-box;
+}
+.columnppw {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: auto;
+}
+.columnppw h2{
+color: black;
+text-align: center;
+}
+.columnppw p{
+color: black;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<body>
+
+<div class="row">
+  <div class="columnppw">
+    <object width="447" height="300" data="video.mp4"></object>
+	<h2>Go talk 9+</h2>
+    <p>Helppokäyttöinen puhelaite, joka avustaa kommunikoinnissa. Tallentaa puhetta painikkeisiin, joihin voi itse valita sopivan kuvan. Laitteessa on viisi tasoa tallentamiseen.  ​</p>
+  </div>
+  <div class="columnppw">
+    <object width="446" height="300" data="muistutin.mp4"></object>
+	<h2>Defender memo minder</h2>
+    <p>Toistaa yhden ennalta äänitetyn viestin selkeästi. Sijoitettavissa oven lähelle tai pöydälle. Kun laite havaitsee liikettä, se toistaa viesti , jonka pituus on enintään 20 sekuntia. ​</p>
+  </div>
+  <div class="columnppw">
+    <object width="447" height="300" data="Keyfinder.mp4"></object>
+	<h2>Keyfinder</h2>
+    <p>Kun kiinnität avaimenperän avainnippuusi, pystyt löytämään avaimet jopa 40 metrin säteeltä. Yhteys toimii vaikka olisi seiniä välissä. ​</p>
+  </div>
+</div>
+
+</body>
+<br><br><br><br>
+<!---- footer ------>
+
+<style>
+.footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 140px;
+   background-color: #04AA6D;
+   color: white;
+   text-align: center;
+   text-size: 40px;
+}
+
+.footer p{
+color: black;
+}
+</style>
+<body>
+<div class="footer">
+  <p><br>Jere<br>John<br>Tom<br>Viktoria<br>Nasteho<br>Fowzia </p>
+</div>
+</body>
+</html>
